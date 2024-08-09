@@ -41,7 +41,7 @@ ggplot(starwars, aes(x = height, y = mass, color = mass)) +
 #| fig-alt: "This is the alt text"
 # histogram of character heights ----
 ggplot(starwars, aes(x = height)) +
-  geom_histogram(fill = "purple", color = "orange") +
+  geom_histogram(fill = "green", color = "blue") +
   labs(x = "Height (cm)", 
        y = "Frequency", 
        title = "Star wars character heights")
