@@ -1,0 +1,63 @@
+---
+title: "Day 5 morning session"
+format: html
+editor: visual
+execute: 
+  warning: false
+---
+
+# Setup
+
+```{r}
+#| message: false
+# load libraries ----
+library(tidyverse)
+```
+
+## Star wars fun
+
+```{r}
+#| include: false
+#data exploration ----
+names(starwars)
+head(starwars)
+tail(starwars)
+dim(starwars)
+```
+
+```{r}
+#| echo: false
+# graphing practice
+ggplot(starwars, aes(x = height, y = mass, color = mass)) +
+  geom_point() + 
+  labs(title = "Scatterplot of character height vs. mass",  
+                        x = "Height (cm)",  
+                        y = "Mass (kg)")
+```
+
+```{r}
+#| message: false
+#| fig-cap: "This is my figure caption"
+#| fig-alt: "This is the alt text"
+# histogram of character heights ----
+ggplot(starwars, aes(x = height)) +
+  geom_histogram(fill = "purple", color = "orange") +
+  labs(x = "Height (cm)", 
+       y = "Frequency", 
+       title = "Star wars character heights")
+  
+```
+
+## Summary statistics for individual columns
+
+```{r}
+# summary stats ----
+sw_height_mean <- round(mean(starwars$height, na.rm = T), 3)
+sw_height_median <- median(starwars$height, na.rm = T)
+sw_height_var <- var(starwars$height, na.rm = T)
+sw_height_sd <- sd(starwars$height, na.rm = T)
+
+
+```
+
+The mean height of all star wars characters is `r sw_height_mean`
